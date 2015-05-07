@@ -1,38 +1,43 @@
 # VoltHaml
 
-Provides Haml template handling for your Volt apps.
+Provides **Haml Templates Rendering** for your Volt apps.
 
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add to your Gemfile:
 
 ```ruby
 gem 'volt_haml'
 ```
 
-And then execute:
+This requires a version of volt which does not yet exist, but works with this branch:
+[https://github.com/CollaboTree/volt/tree/haml](https://github.com/CollaboTree/volt/tree/haml)
 
-    $ bundle
 
-Or install it yourself as:
+## HOW TO USE
 
-    $ gem install volt_haml
+You need to make slightly weird looking haml, like this:
 
-## Usage
+```haml
+<:Title>
+{{ view main_path, "title", {controller_group: 'main'} }}
+<:Body>
+.container
+  .header
+    %ul.nav.nav-pills.pull-right
+      %:nav{:href => "/"} Home
+      {{ if Volt.current_user? }}
+      %:nav{:href => "/project/new"} New Post
+      {{ end }}
+      %:nav{:href => "/about"} About
+      %:user_templates:menu
+    %h3.text-muted CollaboTree
+  %:volt:notices
+  {{ view main_path, 'body', {controller_group: 'main'} }}
+  .footer
+<:Nav>
+%li.if.end{:class => "{{ active_tab? }} active {{ }}"}
+  %a{:href => "{{ attrs.href }}"} {{ yield }}
+  ```
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/volt_haml/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
