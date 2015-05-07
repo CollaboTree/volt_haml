@@ -1,5 +1,10 @@
 require "volt_haml/version"
+require "haml"
+
+
+puts "HEY HEY HEY"
 
 module VoltHaml
-  # Your code goes here...
 end
+
+require "volt_haml/haml_handler"
