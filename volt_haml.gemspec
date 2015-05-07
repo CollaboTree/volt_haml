@@ -9,10 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Joran Kikke"]
   spec.email         = ["joran.k@gmail.com"]
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
-
   spec.summary       = %q{HAML Templates for Volt}
   spec.description   = %q{This gem provides HAML templating support for the Volt Framework}
   spec.license       = "MIT"
