@@ -6,4 +6,6 @@ module VoltHaml
   end
 end
 
-Volt::ComponentTemplates.register_template_handler :haml, VoltHaml::HAMLHandler.new
+if defined?(Volt::ComponentTemplates)
+  Volt::ComponentTemplates.register_template_handler :haml, VoltHaml::HAMLHandler.new
+end
