@@ -41,3 +41,4 @@ You need to make slightly weird looking haml, like this:
   %a{:href => "{{ attrs.href }}"} {{ yield }}
   ```
 
+Note that volt-form elements need to be ```%:form{ model: "{{ model }}" }```
